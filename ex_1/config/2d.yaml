@@ -13,4 +13,4 @@ model_num_layers: 4
 
 epochs: 2
 validate_per_steps: 500
-lr: 0.7 # to be tuned
+lr: 0.01 # to be tuned
