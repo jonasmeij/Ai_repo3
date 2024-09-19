@@ -2,6 +2,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from torchvision.models import resnet18
+import random
 
 
 class VarIOResNet(nn.Module):

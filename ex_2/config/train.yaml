@@ -13,7 +13,7 @@ dataloader:
   _partial_: true
   batch_size: 32
   shuffle: true
-  num_workers: 2
+  num_workers: 0
 
 model:
   _target_: ex_2.model.PolarSunNet
@@ -21,14 +21,23 @@ model:
 optimizer:
   _target_: torch.optim.Adam
   _partial_: true
+<<<<<<< HEAD
   lr: 5e-4
+=======
+  lr: 0.001
+>>>>>>> 509be15 (started on competition)
 
 defaults:
   - _self_
   - dataset: real_dataset
   - model/backbone: vanilla # resnet, vanilla
+<<<<<<< HEAD
   - model/representation: DOP+AOP # raw, IQU, DOP+AOP, IQU+DOP+AOP
   - model/readout: vector # angle, vector
+=======
+  - model/representation: raw # raw, IQU, DOP+AOP, IQU+DOP+AOP
+  - model/readout: vecotr # angle, vector
+>>>>>>> 509be15 (started on competition)
   # use mse loss when readout as angle, use l_norm loss when readout as vector
   - loss: l_norm # mse, l_norm
   - optional lr@optimizer: ${model/backbone}_${model/representation}_${model/readout}
