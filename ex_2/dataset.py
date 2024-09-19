@@ -3,10 +3,11 @@ from torch.utils.data import Dataset
 import numpy as np
 import h5py
 import os
+import random
 
 
 class PolImgDataset(Dataset):
-    def __init__(self, dataset_path, prefix="", h5=False, augment=False):
+    def __init__(self, dataset_path, prefix="", h5=False, augment=True):
         self.h5 = h5
         self.augment = augment
         if self.h5:
