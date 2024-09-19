@@ -40,8 +40,20 @@ class PolImgDataset(Dataset):
             maps, vector, angles = self.maps[idx], self.vector[idx], self.angles[idx]
 
         if self.augment:
-            # TODO: Implement data augmentation
-            pass
+
+            # Horizontal flip
+            if random.random() < 0.5:
+                maps = torch.flip(maps, dims=[2])
+                maps = maps[[0, 3, 2, 1], :, :]  # Swap I45 and I135
+                vector[0] = -vector[0]  # Flip x component of vector
+                angles = torch.remainder(360 - angles, 360)  # Adjust angle
+
+            # Vertical flip
+            if random.random() < 0.5:
+                maps = torch.flip(maps, dims=[1])
+                maps = maps[[0, 3, 2, 1], :, :]  # Swap I45 and I135
+                vector[1] = -vector[1]  # Flip y component of vector
+                angles = torch.remainder(360 - angles, 360)  # Adjust angle
 
         return maps, vector, angles
 
