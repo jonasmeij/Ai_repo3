@@ -1,4 +1,4 @@
-epochs: 50
+epochs: 10
 
 demo:
   param_group_1:
@@ -36,8 +36,12 @@ defaults:
   - model/readout: vector # angle, vector
 =======
   - model/representation: raw # raw, IQU, DOP+AOP, IQU+DOP+AOP
+<<<<<<< HEAD
   - model/readout: vecotr # angle, vector
 >>>>>>> 509be15 (started on competition)
+=======
+  - model/readout: vector # angle, vector
+>>>>>>> 9cd4f2a (competition)
   # use mse loss when readout as angle, use l_norm loss when readout as vector
   - loss: l_norm # mse, l_norm
   - optional lr@optimizer: ${model/backbone}_${model/representation}_${model/readout}
