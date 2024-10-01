@@ -3,10 +3,9 @@ batchsize_train: 1
 batchsize_val: 1
 shuffle_train: True
 shuffle_val: False
-num_workers_train_loader: 0
-num_workers_val_loader: 0
+num_workers_train_loader: 5
+num_workers_val_loader: 5
 
-epochs: 5
+epochs: 10
 
-validate_per_steps: 500
-lr: 0.005 # to be tuned
+lr: 0.0001 # to be tuned
